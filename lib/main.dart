@@ -1,8 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mediblock/transitions/FadeIn.dart';
 
 void main() {
+  //Makes sure that flutter engine and widget bindings are initialized!
+  WidgetsFlutterBinding.ensureInitialized();
+
+  //Changes the color of the overlay
+  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+    systemNavigationBarColor: Colors.transparent,
+  ));
+
   runApp(MyApp());
 }
 
@@ -10,7 +19,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Mediblock',
       theme: ThemeData(
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
@@ -19,7 +28,7 @@ class MyApp extends StatelessWidget {
         fontFamily: 'Georgia',
       ),
       debugShowCheckedModeBanner: false,
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: MyHomePage(title: 'Mediblock'),
     );
   }
 }
@@ -36,6 +45,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomPadding: false,
       body: Container(
         width: double.infinity,
         decoration: BoxDecoration(
