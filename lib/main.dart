@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mediblock/transitions/ButtonPulse.dart';
 import 'package:mediblock/transitions/FadeIn.dart';
 
 void main() {
@@ -8,9 +9,11 @@ void main() {
   WidgetsFlutterBinding.ensureInitialized();
 
   //Changes the color of the overlay
+  SystemChrome.setEnabledSystemUIOverlays([SystemUiOverlay.top]);
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
     systemNavigationBarColor: Colors.transparent,
   ));
+//  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.dark);
 
   runApp(MyApp());
 }
@@ -96,30 +99,25 @@ class _MyHomePageState extends State<MyHomePage> {
                       ),
                     ),
                   ),
+                  delay: 1.05,
                 ),
               ),
               Divider(
                 height: 75,
               ),
               Center(
-                child: Container(
-                  width: 75,
-                  height: 75,
-                  padding: EdgeInsets.all(5),
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(50),
-                      color: Colors.blue.withOpacity(0.4)),
-                  child: InkWell(
-                    child: Container(
-                      decoration: BoxDecoration(
-                          shape: BoxShape.circle, color: Colors.blue),
-                      child: Icon(Icons.keyboard_arrow_up),
-                    ),
+                heightFactor: 0,
+                child: FadeIn(
+                  child: ButtonPulse(
+                    child: Icon(Icons.keyboard_arrow_up),
+                    startRadius: 65,
+                    finishRadius: 80,
                   ),
+                  delay: 1.2,
                 ),
               ),
               Divider(
-                height: 50,
+                height: 100,
               ),
             ],
           ),
