@@ -5,8 +5,14 @@ enum _AniProps { opacity, radius }
 
 class ButtonPulse extends StatelessWidget {
   ButtonPulse(
-      {Key key, @required this.child, this.startRadius, this.finishRadius})
+      {Key key,
+      @required this.child,
+      @required this.route,
+      this.startRadius,
+      this.finishRadius})
       : super(key: key);
+
+  final Route route;
   final double startRadius;
   final double finishRadius;
   final Widget child;
@@ -50,6 +56,9 @@ class ButtonPulse extends StatelessWidget {
                         shape: BoxShape.circle, color: Colors.blue),
                     child: child,
                   ),
+                  onTap: () {
+                    Navigator.of(context).push(route);
+                  },
                 ),
               ),
             ),

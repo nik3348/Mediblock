@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mediblock/Home.dart';
 import 'package:mediblock/transitions/ButtonPulse.dart';
 import 'package:mediblock/transitions/FadeIn.dart';
 
@@ -36,15 +37,10 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class MyHomePage extends StatefulWidget {
+class MyHomePage extends StatelessWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
   final String title;
 
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -103,21 +99,21 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),
               Divider(
-                height: 75,
+                height: 45,
               ),
               Center(
-                heightFactor: 0,
                 child: FadeIn(
                   child: ButtonPulse(
                     child: Icon(Icons.keyboard_arrow_up),
                     startRadius: 65,
                     finishRadius: 80,
+                    route: _createRoute(),
                   ),
                   delay: 1.2,
                 ),
               ),
               Divider(
-                height: 100,
+                height: 55,
               ),
             ],
           ),
@@ -125,4 +121,13 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
     );
   }
+}
+
+Route _createRoute() {
+  return PageRouteBuilder(
+    pageBuilder: (context, animation, secondaryAnimation) => Home(),
+    transitionsBuilder: (context, animation, secondaryAnimation, child) {
+      return child;
+    },
+  );
 }
