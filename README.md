@@ -1,16 +1,19 @@
-# mediblock
+# Mediblock
 
-Blockchain Application
+Mediblock is a flutter application made to be the client side for a block chain service.
 
-## Getting Started
+The goal is to:
+- To create a intuitive ui with flutter
+- To make a place where you can store your medical records in a safe place
 
-This project is a starting point for a Flutter application.
+## Screenshots
+### Startup
+![Startup](./screenshots/startup.jpg)
 
-A few resources to get you started if this is your first Flutter project:
+## Installation
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+Use the flutter package manager [pub](https://pub.dev/) to install dependencies.
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+```bash
+flutter pub get
+```
